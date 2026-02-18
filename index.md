@@ -22,3 +22,10 @@ I am a first-year Ph.D. student in the [School of Computing and Data Science](ht
 - Research Intern, Network Research Group @ MSRA, Mentor: Zhixiong Niu, Jun. 2025 - Jan. 2026
 - Research Intern, HPC Group @ Shanghai AI Lab, Mentor: Rong Fu, March. 2024 - Aug. 2024
 
+## Awards
+
+- Full Postgraduate Scholarship of HKU, 2026-2030
+- CSC Scholarship, China-Canada exchange student, 2023
+- First Prize Scholarship of NWPU, 2022
+- Third Prize, IEEE International Conference on Robotics and Automation DJI Robo-master AI Challenge, 2022
+
