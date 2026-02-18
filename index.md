@@ -20,5 +20,4 @@ I am a first-year Ph.D. student at The University of Hong Kong, advised by Prof.
 ## Internship
 
 - Research Intern, Network Research Group @ MSRA, Mentor: Zhixiong Niu, Jun. 2025 - Jan. 2026
-
-- Research Intern, HPC Group @ Shanghai AI Lab, Mentor: Rong Fu, March. 2024 - Aug. 2025
+- Research Intern, HPC Group @ Shanghai AI Lab, Mentor: Rong Fu, March. 2024 - Aug. 2024
