@@ -1,3 +1,11 @@
+---
+layout: homepage
+---
+
+<h1 id="about-me"></h1>
+
+<h2 style="margin: 80px 0px 10px;"></h2>
+
 I am a first-year Ph.D. student at The University of Hong Kong, advised by Prof. Yiming Qiu. My research primarily focuses on datacenter networks, the Internet, edge networks, and video live streaming. Previously, I received my B.E. in Computer Science and Technology from Northwestern Polytechnical University.
 
 ## Research Interests
@@ -9,4 +17,9 @@ I am a first-year Ph.D. student at The University of Hong Kong, advised by Prof.
 - **[Feb. 2026]** Join HKU CDS as a PhD student.
 - **[Dec. 2025]** Our paper about Internet monitoring is accepted to NSDI 2026.
 
+{% include_relative _includes/news.md %}
+
+{% include_relative _includes/contact.md %}
+
 {% include_relative _includes/publications.md %}
+
