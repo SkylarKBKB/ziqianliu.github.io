@@ -4,7 +4,7 @@ layout: homepage
 
 ## About Me
 
-I am a first-year Ph.D. student at The University of Hong Kong, advised by Prof. Yiming Qiu. My research primarily focuses on datacenter networks, the Internet, edge networks, and video live streaming. Previously, I received my B.E. in Computer Science and Technology from Northwestern Polytechnical University.
+I am a first-year Ph.D. student in the [School of Computing and Data Science](https://www.cds.hku.hk/) at [The University of Hong Kong](https://www.hku.hk/), advised by Prof. [Yiming Qiu](https://yimingqiu.me/). My research primarily focuses on datacenter networks, the Internet, edge networks, and video live streaming. Previously, I received my B.E. in Computer Science and Technology from Northwestern Polytechnical University.
 
 ## Research Interests
 
@@ -21,3 +21,5 @@ I am a first-year Ph.D. student at The University of Hong Kong, advised by Prof.
 
 - Research Intern, Network Research Group @ MSRA, Mentor: Zhixiong Niu, Jun. 2025 - Jan. 2026
 - Research Intern, HPC Group @ Shanghai AI Lab, Mentor: Rong Fu, March. 2024 - Aug. 2024
+
+[School of Information Sciences](https://ischool.illinois.edu/) 
