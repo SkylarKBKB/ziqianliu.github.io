@@ -19,3 +19,6 @@ I am a first-year Ph.D. student at The University of Hong Kong, advised by Prof.
 
 {% include_relative _includes/services.md %}
 
+## Internship
+
+- Research Intern, Network Research Group @ MSRA, Jun. 2025 - Jan. 2026
