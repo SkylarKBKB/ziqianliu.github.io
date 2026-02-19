@@ -1,167 +1,160 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
-<head>
-  <title>{{ site.title }} | {{site.affiliation}}</title>
+  <head>
+    <title>{{ site.title }} | {{site.affiliation}}</title>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{{ site.description }}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ site.description }}">
+    {% if site.keywords %}
+    <meta name="keywords" content="{{ site.keywords }}">
+    {% endif %}
+    {% if site.canonical %}
+    <link rel="canonical" href="{{ site.canonical }}"/>
+    {% endif %}
 
-  <style>
-    /* ===== 基础布局 ===== */
+    <link rel="icon" media="(prefers-color-scheme:dark)" href="{{ site.favicon_dark }}" type="image/png" />
+    <link rel="icon" media="(prefers-color-scheme:light)" href="{{ site.favicon }}" type="image/png" />
+    <script src="./assets/js/favicon-switcher.js" type="application/javascript"></script>
 
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial;
-      background-color: #ffffff;
-      color: #222;
-    }
+    <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin=anonymous>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    {% if site.font == "Sans Serif" %}
+    <link rel="stylesheet" href="./assets/css/font_sans_serif.css">
+    {% else %}
+    <link rel="stylesheet" href="./assets/css/font.css">
+    {% endif %}
+    {% if site.auto_dark_mode %}
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/publications.css">
+    {% else %}
+    <link rel="stylesheet" href="./assets/css/style-no-dark-mode.css">
+    <link rel="stylesheet" href="./assets/css/publications-no-dark-mode.css">
+    {% endif %}
 
-    .wrapper {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 30px 40px;   /* 减少左侧空白 */
-      display: flex;
-    }
-
-    /* ===== 左栏 ===== */
-
-    header {
-      width: 25%;          /* 左栏变窄 */
-      padding-right: 20px;
-    }
-
-    /* ===== 右栏 ===== */
-
-    section {
-      width: 75%;
-    }
-
-    /* ===== 头像样式 ===== */
-
-    .avatar-container {
-      margin-bottom: 20px;
-    }
-
-    .avatar-container img {
-      width: 200px;         /* 放大头像 */
-      height: 200px;        /* 正方形 */
-      object-fit: cover;    /* 自动裁剪不变形 */
-      border-radius: 8px;   /* 轻微圆角 */
-      display: block;
-    }
-
-    /* ===== 文字样式 ===== */
-
-    h1 {
-      font-size: 26px;
-      margin-bottom: 8px;
-    }
-
-    .position {
-      font-size: 16px;
-      margin-bottom: 6px;
-    }
-
-    .affiliation {
-      margin-bottom: 6px;
-    }
-
-    .email {
-      margin-bottom: 12px;
-      font-size: 14px;
-    }
-
-    /* ===== 社交图标 ===== */
-
-    .social-icons a {
-      margin-right: 10px;
-      font-size: 20px;
-      color: #333;
-      text-decoration: none;
-    }
-
-    .social-icons a:hover {
-      color: #007acc;
-    }
-
-    /* ===== 响应式 ===== */
-
-    @media (max-width: 900px) {
+    <!-- 新增：调整左侧边栏空白的样式 -->
+    <style>
+      /* 核心：减少左侧边栏的空白 */
       .wrapper {
-        flex-direction: column;
+        padding-left: 0 !important; /* 移除wrapper左侧默认内边距 */
+        max-width: 1200px; /* 限制页面最大宽度，保持布局美观 */
+        margin: 0 auto; /* 页面整体居中 */
       }
 
-      header, section {
-        width: 100%;
-      }
-
+      /* 调整侧边栏样式 */
       header {
-        margin-bottom: 30px;
+        padding-left: 8px !important; /* 侧边栏内容左内边距（可自行调整） */
+        padding-right: 20px !important; /* 侧边栏右侧间距，保持和内容区分隔 */
+        margin-left: 0 !important; /* 移除侧边栏左侧外边距 */
+        width: 270px; /* 固定侧边栏宽度，避免布局错乱 */
       }
 
-      .avatar-container img {
-        width: 160px;
-        height: 160px;
+      /* 调整主内容区间距，保持视觉平衡 */
+      section {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
       }
-    }
-  </style>
-</head>
 
-<body>
-  <div class="wrapper">
+      /* 响应式适配：移动端恢复正常布局 */
+      @media (max-width: 768px) {
+        .wrapper {
+          padding-left: 15px !important;
+          padding-right: 15px !important;
+        }
+        header {
+          padding-left: 0 !important;
+          margin-bottom: 20px;
+          width: 100%;
+        }
+      }
+    </style>
 
-    <header>
-      {% if site.avatar %}
-      <div class="avatar-container">
-        <img src="{{ site.avatar }}" alt="avatar">
-      </div>
-      {% endif %}
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        
+        {% if site.avatar %}
+        <a class="image avatar"><img src="{{ site.avatar }}" alt="avatar" /></a>
+        {% endif %}
 
-      <h1>{{ site.title }}</h1>
+        <h1>{{ site.title }}</h1>
 
-      {% if site.position %}
-      <div class="position">{{ site.position }}</div>
-      {% endif %}
+        {% if site.position %}
+        <position style="font-size:1.10rem;">{{ site.position }}</position>
+        <br>
+        {% endif %}
+        {% if site.affiliation %}
+        <a href="{{ site.affiliation_link }}" rel="noopener"><autocolor>{{ site.affiliation }}</autocolor></a>
+        <br>
+        {% endif %}
+        {% if site.email %}
+        <email>{{ site.email }}</email>
+        {% endif %}
 
-      {% if site.affiliation %}
-      <div class="affiliation">
-        <a href="{{ site.affiliation_link }}" rel="noopener">
-          {{ site.affiliation }}
-        </a>
-      </div>
-      {% endif %}
-
-      {% if site.email %}
-      <div class="email">{{ site.email }}</div>
-      {% endif %}
-
-      <div class="social-icons">
+        <br>
+        <br>
+        <div class="social-icons">
         {% if site.google_scholar %}
-        <a href="{{ site.google_scholar }}">
-          Google Scholar
+        <a style="margin: 0 5px 0 0" href="{{ site.google_scholar }}">
+          <i class="ai ai-google-scholar" style="font-size:1.2rem"></i>
+        </a>  
+        {% endif %}
+
+        {% if site.cv_link %}
+        <a style="margin: 0 5px 0 0" href="{{ site.cv_link }}">
+          <i class="ai ai-cv" style="font-size:1.3rem;"></i>
         </a>
         {% endif %}
 
         {% if site.github_link %}
-        <a href="{{ site.github_link }}">
-          GitHub
+        <a style="margin: 0 5px 0 0" href="{{ site.github_link }}">
+          <i class="fab fa-github"></i>
         </a>
         {% endif %}
 
         {% if site.linkedin %}
-        <a href="{{ site.linkedin }}">
-          LinkedIn
+        <a style="margin: 0 5px 0 0" href="{{ site.linkedin }}">
+          <i class="fab fa-linkedin"></i>
         </a>
         {% endif %}
-      </div>
-    </header>
 
-    <section>
+        {% if site.twitter %}
+        <a style="margin: 0 0 0 0" href="{{ site.twitter }}">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+        {% endif %}
+        </div>
+        <br>
+
+      </header>
+      <section>
+
       {{ content }}
-    </section>
 
-  </div>
-</body>
+      <br>
+
+      {% if site.enable_footnote %}
+      <p><small>Powered by Jekyll and <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener">Minimal Light</a> theme.</small></p>
+      {% endif %}
+
+      </section>
+      <footer>
+        
+      </footer>
+    </div>
+    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    {% if site.google_analytics %}
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', '{{ site.google_analytics }}', 'auto');
+      ga('send', 'pageview');
+    </script>
+    {% endif %}
+  </body>
 </html>
