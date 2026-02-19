@@ -35,28 +35,47 @@
     {% endif %}
 
     <style>
-      /* 1. 放大头像图片并修改为圆角正方形 (对所有设备生效) */
+      /* 1. 头像样式：保持大尺寸和圆角 */
       header .image.avatar img {
-        width: 150px !important;  
-        height: 150px !important; 
+        width: 160px !important;  /* 稍微再调大了一点点 */
+        height: 160px !important; 
         max-width: 100%;
-        border-radius: 25px !important; /* 控制圆角的程度 */
+        border-radius: 20px !important; 
+      }
+      header .image.avatar {
+        border-radius: 20px !important;
+        margin-bottom: 20px;
       }
 
-      /* 确保外层容器也应用圆角，防止某些主题的默认遮挡 */
-       header .image.avatar {
-        border-radius: 25px !important; 
-       }
-
-      /* 2. 进一步减小左侧栏占比，增加右侧内容宽度 (仅针对电脑等宽屏设备生效) */
+      /* 2. 核心修改：针对宽屏设备极致压缩左侧空白 */
       @media print, screen and (min-width: 960px) {
+        /* 扩大整体容器宽度，让左右分布更自然 */
+        .wrapper {
+          width: 900px !important; 
+          margin-left: auto;
+          margin-right: auto;
+        }
+
         header {
-          width: 170px !important; /* 从200px进一步压缩到170px */
-          padding-right: 20px; /* 微调右侧边距，防止文字贴太紧 */
+          width: 170px !important; /* 宽度压到和头像差不多 */
+          float: left;
+          position: relative;
+          padding: 20px 0 0 0 !important; /* 彻底移除左侧内边距 */
+          margin: 0 !important;
         }
+
         section {
-          width: 650px !important; /* 从620px进一步加宽到650px */
+          width: 680px !important; /* 相应加宽右侧 */
+          float: right;
+          padding-left: 0 !important; /* 减少左侧与头像之间的间距 */
+          margin-left: 20px !important; 
         }
+      }
+
+      /* 社交图标稍微调大一点点，填补下方的视觉空白 */
+      .social-icons i {
+        font-size: 1.3rem;
+        margin-right: 8px;
       }
     </style>
   </head>
@@ -68,70 +87,53 @@
         <a class="image avatar"><img src="{{ site.avatar }}" alt="avatar" /></a>
         {% endif %}
 
-        <h1>{{ site.title }}</h1>
+        <h1 style="margin-top: 10px;">{{ site.title }}</h1>
 
         {% if site.position %}
-        <position style="font-size:1.10rem;">{{ site.position }}</position>
+        <position style="font-size:1.0rem; line-height: 1.2;">{{ site.position }}</position>
         <br>
         {% endif %}
         {% if site.affiliation %}
-        <a href="{{ site.affiliation_link }}" rel="noopener"><autocolor>{{ site.affiliation }}</autocolor></a>
+        <a href="{{ site.affiliation_link }}" rel="noopener" style="font-size: 0.95rem;"><autocolor>{{ site.affiliation }}</autocolor></a>
         <br>
         {% endif %}
         {% if site.email %}
-        <email>{{ site.email }}</email>
+        <email style="font-size: 0.9rem;">{{ site.email }}</email>
         {% endif %}
 
         <br>
-        <br>
-        <div class="social-icons">
+        <div class="social-icons" style="margin-top: 15px;">
         {% if site.google_scholar %}
-        <a style="margin: 0 5px 0 0" href="{{ site.google_scholar }}">
-          <i class="ai ai-google-scholar" style="font-size:1.2rem"></i>
-        </a>  
+        <a href="{{ site.google_scholar }}"><i class="ai ai-google-scholar"></i></a>  
         {% endif %}
 
         {% if site.cv_link %}
-        <a style="margin: 0 5px 0 0" href="{{ site.cv_link }}">
-          <i class="ai ai-cv" style="font-size:1.3rem;"></i>
-        </a>
+        <a href="{{ site.cv_link }}"><i class="ai ai-cv"></i></a>
         {% endif %}
 
         {% if site.github_link %}
-        <a style="margin: 0 5px 0 0" href="{{ site.github_link }}">
-          <i class="fab fa-github"></i>
-        </a>
+        <a href="{{ site.github_link }}"><i class="fab fa-github"></i></a>
         {% endif %}
 
         {% if site.linkedin %}
-        <a style="margin: 0 5px 0 0" href="{{ site.linkedin }}">
-          <i class="fab fa-linkedin"></i>
-        </a>
+        <a href="{{ site.linkedin }}"><i class="fab fa-linkedin"></i></a>
         {% endif %}
 
         {% if site.twitter %}
-        <a style="margin: 0 0 0 0" href="{{ site.twitter }}">
-          <i class="fab fa-x-twitter"></i>
-        </a>
+        <a href="{{ site.twitter }}"><i class="fab fa-x-twitter"></i></a>
         {% endif %}
         </div>
-        <br>
-
       </header>
+
       <section>
-
       {{ content }}
-
       <br>
-
       {% if site.enable_footnote %}
       <p><small>Powered by Jekyll and <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener">Minimal Light</a> theme.</small></p>
       {% endif %}
-
       </section>
-      <footer>
-        
-      </footer>
+
+      <footer></footer>
     </div>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
     {% if site.google_analytics %}
