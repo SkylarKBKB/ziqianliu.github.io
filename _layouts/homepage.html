@@ -2,7 +2,6 @@
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
     <title>{{ site.title }} | {{site.affiliation}}</title>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,14 +12,12 @@
     {% if site.canonical %}
     <link rel="canonical" href="{{ site.canonical }}"/>
     {% endif %}
-
     <link rel="icon" media="(prefers-color-scheme:dark)" href="{{ site.favicon_dark }}" type="image/png" />
     <link rel="icon" media="(prefers-color-scheme:light)" href="{{ site.favicon }}" type="image/png" />
     <script src="./assets/js/favicon-switcher.js" type="application/javascript"></script>
-
     <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin=anonymous>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+   
     {% if site.font == "Sans Serif" %}
     <link rel="stylesheet" href="./assets/css/font_sans_serif.css">
     {% else %}
@@ -34,54 +31,73 @@
     <link rel="stylesheet" href="./assets/css/publications-no-dark-mode.css">
     {% endif %}
 
-    <!-- 新增：调整左侧边栏空白的样式 -->
+    <!-- 自定义样式：减少左侧空白 + 正方形大头像 -->
     <style>
-      /* 核心：减少左侧边栏的空白 */
+      /* 页面整体：去掉左侧多余空白 */
       .wrapper {
-        padding-left: 0 !important; /* 移除wrapper左侧默认内边距 */
-        max-width: 1200px; /* 限制页面最大宽度，保持布局美观 */
-        margin: 0 auto; /* 页面整体居中 */
-      }
-
-      /* 调整侧边栏样式 */
-      header {
-        padding-left: 8px !important; /* 侧边栏内容左内边距（可自行调整） */
-        padding-right: 20px !important; /* 侧边栏右侧间距，保持和内容区分隔 */
-        margin-left: 0 !important; /* 移除侧边栏左侧外边距 */
-        width: 270px; /* 固定侧边栏宽度，避免布局错乱 */
-      }
-
-      /* 调整主内容区间距，保持视觉平衡 */
-      section {
-        padding-left: 15px !important;
+        padding-left: 0 !important;
         padding-right: 15px !important;
+        max-width: 1200px;
+        margin: 0 auto;
       }
 
-      /* 响应式适配：移动端恢复正常布局 */
+      /* 左侧栏（header）调整 */
+      header {
+        padding: 25px 25px 20px 12px !important;  /* 上/右/下/左 */
+        margin-left: 0 !important;
+        width: 280px !important;                  /* 左侧栏宽度，配合大头像 */
+        box-sizing: border-box;
+      }
+
+      /* 头像：正方形 + 放大 */
+      .image.avatar {
+        width: 140px !important;
+        height: 140px !important;
+        overflow: hidden;
+        border-radius: 0 !important;              /* 正方形（无圆角） */
+        margin: 0 auto 18px auto !important;
+        display: block;
+      }
+
+      .image.avatar img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;             /* 图片填充正方形，自动裁切 */
+      }
+
+      /* 主内容区微调，与左侧平衡 */
+      section {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+      }
+
+      /* 移动端响应式 */
       @media (max-width: 768px) {
         .wrapper {
           padding-left: 15px !important;
           padding-right: 15px !important;
         }
         header {
-          padding-left: 0 !important;
-          margin-bottom: 20px;
-          width: 100%;
+          width: 100% !important;
+          padding: 20px 15px !important;
+          margin-bottom: 25px;
+          text-align: center;
+        }
+        .image.avatar {
+          margin: 0 auto 20px auto !important;
         }
       }
     </style>
-
   </head>
+
   <body>
     <div class="wrapper">
       <header>
-        
+       
         {% if site.avatar %}
         <a class="image avatar"><img src="{{ site.avatar }}" alt="avatar" /></a>
         {% endif %}
-
         <h1>{{ site.title }}</h1>
-
         {% if site.position %}
         <position style="font-size:1.10rem;">{{ site.position }}</position>
         <br>
@@ -93,34 +109,29 @@
         {% if site.email %}
         <email>{{ site.email }}</email>
         {% endif %}
-
         <br>
         <br>
         <div class="social-icons">
         {% if site.google_scholar %}
         <a style="margin: 0 5px 0 0" href="{{ site.google_scholar }}">
           <i class="ai ai-google-scholar" style="font-size:1.2rem"></i>
-        </a>  
+        </a>
         {% endif %}
-
         {% if site.cv_link %}
         <a style="margin: 0 5px 0 0" href="{{ site.cv_link }}">
           <i class="ai ai-cv" style="font-size:1.3rem;"></i>
         </a>
         {% endif %}
-
         {% if site.github_link %}
         <a style="margin: 0 5px 0 0" href="{{ site.github_link }}">
           <i class="fab fa-github"></i>
         </a>
         {% endif %}
-
         {% if site.linkedin %}
         <a style="margin: 0 5px 0 0" href="{{ site.linkedin }}">
           <i class="fab fa-linkedin"></i>
         </a>
         {% endif %}
-
         {% if site.twitter %}
         <a style="margin: 0 0 0 0" href="{{ site.twitter }}">
           <i class="fab fa-x-twitter"></i>
@@ -128,23 +139,21 @@
         {% endif %}
         </div>
         <br>
-
       </header>
+
       <section>
-
-      {{ content }}
-
-      <br>
-
-      {% if site.enable_footnote %}
-      <p><small>Powered by Jekyll and <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener">Minimal Light</a> theme.</small></p>
-      {% endif %}
-
+        {{ content }}
+        <br>
+        {% if site.enable_footnote %}
+        <p><small>Powered by Jekyll and <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener">Minimal Light</a> theme.</small></p>
+        {% endif %}
       </section>
+
       <footer>
-        
+       
       </footer>
     </div>
+
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
     {% if site.google_analytics %}
     <script>
