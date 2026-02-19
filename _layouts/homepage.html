@@ -34,6 +34,30 @@
     <link rel="stylesheet" href="./assets/css/publications-no-dark-mode.css">
     {% endif %}
 
+    <style>
+      /* 1. 放大头像图片并修改为圆角正方形 (对所有设备生效) */
+      header .image.avatar img {
+        width: 150px !important;  
+        height: 150px !important; 
+        max-width: 100%;
+        border-radius: 25px !important; /* 控制圆角的程度，数值越小越方，越大越圆 */
+      }
+
+      /* 确保外层容器也应用圆角，防止某些主题的默认遮挡 */
+       header .image.avatar {
+        border-radius: 25px !important; 
+       }
+
+      /* 2. 减小左侧栏占比，增加右侧内容宽度 (仅针对电脑等宽屏设备生效) */
+      @media print, screen and (min-width: 960px) {
+        header {
+          width: 200px !important; /* 左侧栏变窄 */
+        }
+        section {
+          width: 620px !important; /* 右侧内容区变宽填补空白 */
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="wrapper">
