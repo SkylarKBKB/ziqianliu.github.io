@@ -31,39 +31,38 @@
     <link rel="stylesheet" href="./assets/css/publications-no-dark-mode.css">
     {% endif %}
     <!-- 新增：调整左侧边栏空白的样式 -->
-<style>
-  .wrapper {
-    max-width: 800px;
-    margin: 0 auto;
-    display: flex;        /* 关键：改成 flex */
-    padding: 0;
-  }
-
-  header {
-    width: 250px;
-    margin: 0;
-    padding: 10px;
-  }
-
-  section {
-    flex: 1;              /* 自动占剩余空间 */
-    margin-left: 20px;    /* 中间留一点空隙 */
-    padding: 10px;
-  }
-
-  @media (max-width: 768px) {
-    .wrapper {
-      flex-direction: column;
-    }
-    header {
-      width: 100%;
-    }
-    section {
-      margin-left: 0;
-    }
-  }
-</style>
-
+    <style>
+      /* 核心：减少左侧边栏的空白 */
+      .wrapper {
+        padding-left: 0 !important; /* 移除wrapper左侧默认内边距 */
+        max-width: 1200px; /* 限制页面最大宽度，保持布局美观 */
+        margin: 0 auto; /* 页面整体居中 */
+      }
+      /* 调整侧边栏样式 */
+      header {
+        padding-left: 8px !important; /* 侧边栏内容左内边距（可自行调整） */
+        padding-right: 20px !important; /* 侧边栏右侧间距，保持和内容区分隔 */
+        margin-left: 0 !important; /* 移除侧边栏左侧外边距 */
+        width: 270px; /* 固定侧边栏宽度，避免布局错乱 */
+      }
+      /* 调整主内容区间距，保持视觉平衡 */
+      section {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+      }
+      /* 响应式适配：移动端恢复正常布局 */
+      @media (max-width: 768px) {
+        .wrapper {
+          padding-left: 15px !important;
+          padding-right: 15px !important;
+        }
+        header {
+          padding-left: 0 !important;
+          margin-bottom: 20px;
+          width: 100%;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="wrapper">
