@@ -31,40 +31,40 @@
     <link rel="stylesheet" href="./assets/css/publications-no-dark-mode.css">
     {% endif %}
     <!-- 新增：调整左侧边栏空白的样式 -->
-    <style>
-      /* 核心：减少左侧边栏的空白 */
-      .wrapper {
-        width: 80%;  
-        padding-left: 0 !important; /* 移除wrapper左侧默认内边距 */
-        max-width: 1200px; /* 限制页面最大宽度，保持布局美观 */
-        margin: 0 auto; /* 页面整体居中 */
-      }
-      /* 调整侧边栏样式 */
-      header {
-        padding-left: 8px !important; /* 侧边栏内容左内边距（可自行调整） */
-        padding-right: 20px !important; /* 侧边栏右侧间距，保持和内容区分隔 */
-        margin-left: 0 !important; /* 移除侧边栏左侧外边距 */
-        width: 270px; /* 固定侧边栏宽度，避免布局错乱 */
-      }
-      /* 调整主内容区间距，保持视觉平衡 */
-      section {
-        flex: 1;
-        padding-left: 40px !important;
-        padding-right: 40px !important;
-      }
-      /* 响应式适配：移动端恢复正常布局 */
-      @media (max-width: 768px) {
-        .wrapper {
-          padding-left: 15px !important;
-          padding-right: 15px !important;
-        }
-        header {
-          padding-left: 0 !important;
-          margin-bottom: 20px;
-          width: 100%;
-        }
-      }
-    </style>
+<style>
+  /* 1. 让整体容器更宽，减少最外层留白 */
+  .wrapper {
+    width: 90% !important; /* 从80%增加到90% */
+    max-width: 1300px !important; 
+    margin: 0 auto;
+    padding-left: 0 !important;
+    display: flex; /* 确保使用flex布局以便控制左右比例 */
+  }
+
+  /* 2. 调整侧边栏（头像区域） */
+  header {
+    width: 250px !important; /* 稍微缩小头像区域宽度 */
+    padding-right: 15px !important; /* 缩小与右侧的间距 */
+    margin-left: 0 !important;
+    position: relative !important; /* 覆盖某些主题的固定定位 */
+    float: none !important; 
+  }
+
+  /* 3. 调整右侧主内容区 */
+  section {
+    width: calc(100% - 270px) !important; /* 强制占据剩余宽度 */
+    padding-left: 30px !important; /* 进一步缩小第二个红框的宽度 */
+    padding-right: 10px !important;
+    margin-left: 0 !important;
+  }
+
+  /* 针对移动端的适配保持不变，确保手机端不会乱码 */
+  @media (max-width: 768px) {
+    .wrapper { width: 95% !important; }
+    header { width: 100% !important; padding-right: 0 !important; }
+    section { width: 100% !important; padding-left: 0 !important; }
+  }
+</style>
   </head>
   <body>
     <div class="wrapper">
