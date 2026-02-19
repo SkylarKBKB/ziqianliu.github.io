@@ -32,57 +32,47 @@
     {% endif %}
     <!-- 新增：调整左侧边栏空白的样式 -->
 <style>
-  /* 1. 限制整体宽度并居中 */
+  /* 1. 核心容器：固定宽度 800px 并居中 */
   .wrapper {
-    max-width: 800px !important; 
-    margin: 0 auto !important;
-    padding: 0 20px !important;
-    display: flex; /* 关键：使用 Flexbox 让左右并排 */
-    flex-direction: row;
+    max-width: 800px !important;
+    margin: 0 auto !important; /* 水平居中 */
+    padding: 0 !important;     /* 彻底去掉左右 padding */
+    display: flex !important;  /* 使用 Flex 使左右并排 */
     align-items: flex-start;
   }
 
-  /* 2. 左侧栏：缩小宽度，防止重叠 */
+  /* 2. 左侧栏：占用较小比例 */
   header {
-    width: 250px !important; /* 缩小左侧宽度 */
-    flex-shrink: 0;         /* 防止左侧被挤压 */
-    position: static !important; /* 确保没有奇怪的绝对定位 */
-    padding: 40px 20px 0 0 !important;
-    text-align: left;
+    width: 25% !important;     /* 设置占比为 25% (约 200px) */
+    padding: 40px 0 0 0 !important;
+    margin: 0 !important;
+    position: static !important; /* 强制取消任何可能的绝对定位 */
+    flex-shrink: 0;
   }
 
-  /* 调整头像大小以适应窄边栏 */
+  /* 头像自适应 */
   header .avatar img {
     width: 120px !important;
-    height: 120px !important;
-    border-radius: 50%;
+    height: auto !important;
   }
 
-  /* 3. 右侧主内容区：自动占据剩余空间 */
+  /* 3. 右侧主内容区：占用剩余比例 */
   section {
-    flex: 1;                /* 占据除去 200px 后的所有空间 */
-    width: auto !important; /* 覆盖默认的固定宽度 */
-    margin: 0 !important;
+    width: 75% !important;     /* 剩余 75% */
     padding: 40px 0 !important;
+    margin: 0 !important;
+    flex-grow: 1;
   }
 
-  /* 4. 移动端适配：屏幕太窄时改为上下排列 */
-  @media (max-width: 768px) {
+  /* 4. 适配移动端：当屏幕小于 800px 时，取消并排改为上下堆叠 */
+  @media (max-width: 800px) {
     .wrapper {
-      display: block; /* 关闭 flex */
-      max-width: 100% !important;
+      flex-direction: column !important;
+      max-width: 95% !important; /* 在小屏幕上留一点呼吸空间 */
     }
-    header {
+    header, section {
       width: 100% !important;
       padding: 20px 0 !important;
-      text-align: center; /* 手机端居中通常更好看 */
-    }
-    header .avatar img {
-      width: 100px !important;
-      height: 100px !important;
-    }
-    section {
-      padding: 10px 0 !important;
     }
   }
 </style>
