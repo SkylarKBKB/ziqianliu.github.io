@@ -30,45 +30,65 @@
     <link rel="stylesheet" href="./assets/css/style-no-dark-mode.css">
     <link rel="stylesheet" href="./assets/css/publications-no-dark-mode.css">
     {% endif %}
-    
-    <!-- 修改後的樣式：左側空白更少 -->
+
+    <!-- 修正重疊問題的樣式 -->
     <style>
-      /* 核心：減少左侧边栏的空白 */
       .wrapper {
         padding-left: 0 !important;
-        max-width: 800px;
-        margin: 0 auto;
+        padding-right: 15px !important;
+        max-width: 800px;          /* 你改的這個值保留 */
+        margin: 0 auto;            /* 恢復居中，避免過度靠左導致重疊 */
       }
-      /* 调整侧边栏样式 */
+
       header {
-        padding-left: 4px !important;     /* 從 8px 改小 → 更貼左邊，可試 2px 或 0px */
-        padding-right: 20px !important;
+        padding: 25px 30px 20px 12px !important;  /* 右側 padding 加大到 30px，避免重疊 */
         margin-left: 0 !important;
-        width: 250px;                     /* 從 270px 改窄一點 */
+        width: 240px !important;                  /* 左側欄寬度適中，不會太擠 */
+        box-sizing: border-box;
       }
-      /* 调整主内容区间距，保持視覺平衡 */
+
+      .image.avatar {
+        width: 140px !important;
+        height: 140px !important;
+        overflow: hidden;
+        border-radius: 50% !important;  /* 保持圓形，如果你想要正方形改成 0 */
+        margin: 0 auto 18px auto !important;
+        display: block;
+      }
+
+      .image.avatar img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+      }
+
       section {
-        padding-left: 10px !important;    /* 從 15px 改小，讓內容更靠近左側欄 */
+        padding-left: 20px !important;   /* 內容區左側留一點空間，避免頂到左欄 */
         padding-right: 15px !important;
       }
-      /* 响应式适配：移动端恢复正常布局 */
+
       @media (max-width: 768px) {
         .wrapper {
           padding-left: 15px !important;
           padding-right: 15px !important;
+          margin: 0 auto;
         }
         header {
-          padding-left: 0 !important;
-          margin-bottom: 20px;
-          width: 100%;
+          width: 100% !important;
+          padding: 20px 15px !important;
+          margin-bottom: 25px;
+          text-align: center;
+        }
+        section {
+          padding-left: 15px !important;
         }
       }
     </style>
   </head>
+
   <body>
     <div class="wrapper">
       <header>
-      
         {% if site.avatar %}
         <a class="image avatar"><img src="{{ site.avatar }}" alt="avatar" /></a>
         {% endif %}
@@ -87,45 +107,47 @@
         <br>
         <br>
         <div class="social-icons">
-        {% if site.google_scholar %}
-        <a style="margin: 0 5px 0 0" href="{{ site.google_scholar }}">
-          <i class="ai ai-google-scholar" style="font-size:1.2rem"></i>
-        </a>
-        {% endif %}
-        {% if site.cv_link %}
-        <a style="margin: 0 5px 0 0" href="{{ site.cv_link }}">
-          <i class="ai ai-cv" style="font-size:1.3rem;"></i>
-        </a>
-        {% endif %}
-        {% if site.github_link %}
-        <a style="margin: 0 5px 0 0" href="{{ site.github_link }}">
-          <i class="fab fa-github"></i>
-        </a>
-        {% endif %}
-        {% if site.linkedin %}
-        <a style="margin: 0 5px 0 0" href="{{ site.linkedin }}">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        {% endif %}
-        {% if site.twitter %}
-        <a style="margin: 0 0 0 0" href="{{ site.twitter }}">
-          <i class="fab fa-x-twitter"></i>
-        </a>
-        {% endif %}
+          {% if site.google_scholar %}
+          <a style="margin: 0 5px 0 0" href="{{ site.google_scholar }}">
+            <i class="ai ai-google-scholar" style="font-size:1.2rem"></i>
+          </a>
+          {% endif %}
+          {% if site.cv_link %}
+          <a style="margin: 0 5px 0 0" href="{{ site.cv_link }}">
+            <i class="ai ai-cv" style="font-size:1.3rem;"></i>
+          </a>
+          {% endif %}
+          {% if site.github_link %}
+          <a style="margin: 0 5px 0 0" href="{{ site.github_link }}">
+            <i class="fab fa-github"></i>
+          </a>
+          {% endif %}
+          {% if site.linkedin %}
+          <a style="margin: 0 5px 0 0" href="{{ site.linkedin }}">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          {% endif %}
+          {% if site.twitter %}
+          <a style="margin: 0 0 0 0" href="{{ site.twitter }}">
+            <i class="fab fa-x-twitter"></i>
+          </a>
+          {% endif %}
         </div>
         <br>
       </header>
+
       <section>
-      {{ content }}
-      <br>
-      {% if site.enable_footnote %}
-      <p><small>Powered by Jekyll and <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener">Minimal Light</a> theme.</small></p>
-      {% endif %}
+        {{ content }}
+        <br>
+        {% if site.enable_footnote %}
+        <p><small>Powered by Jekyll and <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener">Minimal Light</a> theme.</small></p>
+        {% endif %}
       </section>
+
       <footer>
-      
       </footer>
     </div>
+
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
     {% if site.google_analytics %}
     <script>
