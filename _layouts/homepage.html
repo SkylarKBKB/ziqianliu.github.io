@@ -32,47 +32,35 @@
     {% endif %}
     <!-- 新增：调整左侧边栏空白的样式 -->
 <style>
-  /* 1. 核心容器：固定宽度 800px 并居中 */
+  /* 页面整体宽度控制 */
   .wrapper {
-    max-width: 800px !important;
-    margin: 0 auto !important; /* 水平居中 */
-    padding: 0 !important;     /* 彻底去掉左右 padding */
-    display: flex !important;  /* 使用 Flex 使左右并排 */
-    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 !important;   /* 去掉默认左右留白 */
   }
 
-  /* 2. 左侧栏：占用较小比例 */
+  /* ===== 左侧边栏（缩小占比）===== */
   header {
-    width: 25% !important;     /* 设置占比为 25% (约 200px) */
-    padding: 40px 0 0 0 !important;
-    margin: 0 !important;
-    position: static !important; /* 强制取消任何可能的绝对定位 */
-    flex-shrink: 0;
+    width: 220px;            /* 原来大约 270px，改小一点 */
+    padding-left: 5px !important; 
+    padding-right: 15px !important;
+    margin-left: 0 !important;
   }
 
-  /* 头像自适应 */
-  header .avatar img {
-    width: 120px !important;
-    height: auto !important;
-  }
-
-  /* 3. 右侧主内容区：占用剩余比例 */
+  /* ===== 右侧内容区（变大）===== */
   section {
-    width: 75% !important;     /* 剩余 75% */
-    padding: 40px 0 !important;
-    margin: 0 !important;
-    flex-grow: 1;
+    margin-left: 240px;      /* 要比 header 稍微大一点 */
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
 
-  /* 4. 适配移动端：当屏幕小于 800px 时，取消并排改为上下堆叠 */
-  @media (max-width: 800px) {
-    .wrapper {
-      flex-direction: column !important;
-      max-width: 95% !important; /* 在小屏幕上留一点呼吸空间 */
+  /* ===== 移动端恢复正常 ===== */
+  @media (max-width: 768px) {
+    header {
+      width: 100%;
     }
-    header, section {
-      width: 100% !important;
-      padding: 20px 0 !important;
+    section {
+      margin-left: 0;
     }
   }
 </style>
