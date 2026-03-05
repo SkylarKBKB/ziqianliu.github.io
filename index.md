@@ -17,6 +17,8 @@ I am a first-year Ph.D. student in the [School of Computing and Data Science](ht
 
 {% include_relative _includes/publications.md %}
 
+{% include_relative _includes/other_publications.md %}
+
 ## Internship
 
 - Research Intern, Network Research Group @ MSRA, Mentor: Zhixiong Niu, Jun. 2025 - Jan. 2026
