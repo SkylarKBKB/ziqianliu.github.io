@@ -1,7 +1,7 @@
-<h2 id="publications" style="margin: 2px 0px -15px;">Other Publications</h2>
+<h2 id="publications" style="margin: 2px 0px -15px;">Selected Publications</h2>
 <div class="publications">
 <ol class="bibliography">
-{% for link in site.data.other_publications.main %}
+{% for link in site.data.publications.main %}
 <li>
 <div class="pub-row">
   <div class="col-sm-3 abbr" style="position: relative;padding-right: 15px;padding-left: 15px;">
