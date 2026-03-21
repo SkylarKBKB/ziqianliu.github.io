@@ -1,5 +1,14 @@
 main:
 
+  - title: "Pooling Engram Conditional Memory in Large Language Models using CXL"
+    authors: Ruiyang Ma, Teng Ma, Zhiyuan Su, Hantian Zha, Xinpeng Zhao, Xuchun Shang, Xingrui Yi, Zheng Liu, Zhu Cao, An Wu, Zhichong Dou, <strong>Ziqian Liu</strong>, Daikang Kuang, Guojie Luo
+    conference_short: Euromlsys 26
+    conference: The 6th Workshop on Machine Learning and Systems <strong>(Euromlsys)</strong>, 2026.
+    pdf: https://arxiv.org/abs/2603.10087
+    bibtex: 
+    notes: Accept
+  
+
   - title: "TASE: Token Awareness and Structured Evaluation for Multilingual Language Models"
     authors: Chenzhuo Zhao, Xinda Wang, Yue Huang, Junting Lu, <strong>Ziqian Liu</strong>
     conference_short: AAAI 26
