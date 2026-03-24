@@ -6,7 +6,7 @@ main:
     conference: The 6th Workshop on Machine Learning and Systems <strong>(Euromlsys)</strong>, 2026.
     pdf: https://arxiv.org/abs/2603.10087
     bibtex: 
-    notes: Accept
+    notes: Accept, Oral
   
 
   - title: "TASE: Token Awareness and Structured Evaluation for Multilingual Language Models"
