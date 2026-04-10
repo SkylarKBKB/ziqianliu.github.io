@@ -1,11 +1,10 @@
 <h2 id="publications" style="margin: 2px 0px -15px;">Other Publications</h2>
 
-<div class="publications">
-<ol class="bibliography">
-
+<div class="publications" style="margin-top: 0.5rem;">                                                                                         <ol class="bibliography" style="margin-top: 0;">  
+  
 {% for link in site.data.other_publications.main %}
 
-<li style="margin-bottom: 2px; margin-top: -8px;">  
+<li style="margin-bottom: 2px; margin-top: -15px;">  
 <div class="pub-row">
   <div class="col-sm-3 abbr" style="position: relative;padding-right: 15px;padding-left: 15px;">
     {% if link.image %} 
