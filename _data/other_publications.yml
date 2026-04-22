@@ -1,6 +1,10 @@
 main:
 
-
+  - title: "Towards Learned Switch Behavior Modeling"
+    authors: Daqian Ding, <strong>Ziqian Liu</strong>, Zhixiong Niu, Ziyu Mao, Jingyu Wang, Yongqiang Xiong, Yiming Qiu
+    conference_short: APNET 26
+    conference: The 10th Asia-Pacific Workshop on Networking  <strong>(APNET)</strong>, 2026.
+    notes: Accept
 
   - title: "Gradient-Guided Multi-Judge Prompt Optimization"
     authors: ChenZhuo Zhao, Xinda Wang, Pu Zhao, Yue Huang, Junting Lu, <strong>Ziqian Liu</strong>, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang
